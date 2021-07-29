@@ -16,8 +16,8 @@ public class DispesasFixas {
     private double gas;
     @Column(name = "internet")
     private double internet;
-    @Column(name = "mes")
-    private double mes;
+    @Column(name = "mes_ano")
+    private double data;
 
     public long getId() {
         return id;
@@ -55,11 +55,11 @@ public class DispesasFixas {
         this.internet = internet;
     }
 
-    public double getMes() {
-        return mes;
+    public double getData() {
+        return data;
     }
 
-    public void setMes(double mes) {
-        this.mes = mes;
+    public void setData(double data) {
+        this.data = data;
     }
 }
