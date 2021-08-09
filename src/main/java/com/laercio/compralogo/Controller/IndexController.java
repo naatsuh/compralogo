@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ComprasController {
+public class IndexController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/compras")
-    public String compras(){
-        return "page/compras";
+    @RequestMapping(method = RequestMethod.GET,value = "/")
+    public String inicio (){
+        return "index";
     }
 }

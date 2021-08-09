@@ -3,6 +3,7 @@ package com.laercio.compralogo.Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "dispesas_fixas")
 public class DispesasFixas {
 
     @Id
