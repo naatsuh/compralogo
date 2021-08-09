@@ -11,10 +11,48 @@ body {
 
 /* Nav Page
 --------------------*/
+.nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color: #bffcfc;
+    height: 75px;
+}
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    list-style: none;
+}
+.nav button{
+    margin: 5px;
+    background-color: #227aee;
+    padding: 20px;
+    border-radius: 4px;
+
+    color: white;
+    font-weight: bolder;
+}
+.nav button:last-child {
+    margin: 5px 20px 5px 5px ;
+}
+.nav a{
+    color: #ff4d4d;
+    text-decoration: none;
+}
+.logo {
+    font-size: 32px;
+    margin: 0 0 0 20px;
+    -webkit-text-stroke: 1px #767676;
+}
+
 
 /* Global Page
 --------------------*/
+.table {
 
+}
 
 /* Page - início
 --------------------*/
