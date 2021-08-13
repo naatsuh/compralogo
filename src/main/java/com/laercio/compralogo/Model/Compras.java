@@ -26,20 +26,24 @@ public class Compras {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getCodigo() {
         return codigo;
     }
 
-    public String getProduto() {
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setProduto(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
     public double getQuantidadeUnitario() {

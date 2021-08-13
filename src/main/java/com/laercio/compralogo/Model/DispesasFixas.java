@@ -24,6 +24,10 @@ public class DispesasFixas {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public double getAgua() {
         return agua;
     }

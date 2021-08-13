@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns: th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CompraLogo</title>
+    <link rel="stylesheet"  href="../style/styles.css"/>
+    <link rel="icon" type="image/png" href="image/icon.png">
+</head>
+<body>
+    <header th:replace="fragment-header :: header"></header>
+
+    <div class="div-space">
+        <hr>
+    </div>
+    <div class="div-form">
+        <form action="#" th:action="@{/saveComercio}" th:object="${comercio}" method="POST">
+
+            <label>TIPO DO COMERCIO</label>
+            <input name="tipoDoComercio" type="text" required autofocus/>
+            <label>NOME DO ESTABELICIMENTO</label>
+            <input name="nomeDoComercio" type="text" required/>
+            <label>VALOR TOTAL DA COMPRA</label>
+            <input name="valorTotalDaCompra" type="number" step="0.010" required/>
+            <label>DATA DA COMPRA</label>
+            <input name="dataDaCompra"  type="date" value="10-08-2021"/>
+
+            <input id="button-form" type="submit" value="SALVAR">
+        </form>
+    </div>
+    <div class="div-space">
+        <hr>
+    </div>
+</body>
+</html>

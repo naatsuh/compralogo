@@ -1,54 +1,73 @@
 package com.laercio.compralogo.Model;
 
+import com.laercio.compralogo.util.MetodosPersonalizados;
+
 import javax.persistence.*;
+import java.text.DecimalFormat;
 
 @Entity
-@Table(name = "compra_comercio")
+@Table(name = "comercio")
 public class Comercio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "tipo_do_comercio",nullable = false)
-    private double tipoDoComercio;
+    private String tipoDoComercio;
     @Column(name = "nome_do_comercio",nullable = false)
-    private double nomeDoComerio;
-    @Column(name = "data",nullable = false)
-    private double dataDaCompra;
-
+    private String nomeDoComercio;
     @Column(name = "valor_total_compra", nullable = false)
     private double valorTotalDaCompra;
+    @Column(name = "data",nullable = false)
+    private String dataDaCompra;
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public long getId() {
         return id;
     }
 
-    public double getTipoDoComercio() {
+    public String getTipoDoComercio() {
         return tipoDoComercio;
     }
 
-    public void setTipoDoComercio(double tipoDoComercio) {
+    public void setTipoDoComercio(String tipoDoComercio) {
         this.tipoDoComercio = tipoDoComercio;
     }
 
-    public double getNomeDoComerio() {
-        return nomeDoComerio;
+    public String getNomeDoComercio() {
+        return nomeDoComercio;
     }
 
-    public void setNomeDoComerio(double nomeDoComerio) {
-        this.nomeDoComerio = nomeDoComerio;
+    public void setNomeDoComercio(String nomeDoComercio) {
+        this.nomeDoComercio = nomeDoComercio;
     }
 
-    public double getDataDaCompra() {
+    public String getDataCompraFormatada () {
         return dataDaCompra;
     }
 
-    public void setDataDaCompra(double dataDaCompra) {
+    public String getDataDaCompra() {
+        return dataDaCompra;
+    }
+    public String getDataDaCompraBr() {
+        MetodosPersonalizados mp = new MetodosPersonalizados();
+        return mp.dataBr(dataDaCompra,"/");
+    }
+
+    public void setDataDaCompra(String dataDaCompra) {
         this.dataDaCompra = dataDaCompra;
     }
 
     public double getValorTotalDaCompra() {
         return valorTotalDaCompra;
+    }
+
+    public String getValorTotalDaCompraReais() {
+        DecimalFormat valorTotal = new DecimalFormat("###,###.00");
+        return valorTotal.format(valorTotalDaCompra);
     }
 
     public void setValorTotalDaCompra(double valorTotalDaCompra) {

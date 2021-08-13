@@ -9,6 +9,6 @@ public class ComprasController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/compras-info")
     public String compras(){
-        return "page/compras-info";
+        return "comprasInfo";
     }
 }

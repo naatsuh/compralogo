@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CompraLogo</title>
-    <link rel="stylesheet"  href="style/styles.css"/>
+    <link rel="stylesheet"  href="../style/styles.css"/>
     <link rel="icon" type="image/png" href="image/icon.png">
 </head>
 <body>
@@ -15,32 +15,32 @@
             <tr>
                 <th>
                     <a>
-                        TIPO DO COMERCIO
+                        CÓDIGO
                     </a>
                 </th>
                 <th>
                     <a>
-                        NOME DO ESTABELICIMENTO
+                        DESCRIÇÃO
                     </a>
                 </th>
                 <th>
                     <a>
-                        VALOR TOTAL DA COMPRA
+                        QUANTIDADE UN.
                     </a>
                 </th>
                 <th>
                     <a>
-                        DATA DA COMPRA
+                        VALOR DO PRODUTO POR UN./MEDIDA
                     </a>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="comercio : ${listadecomercios}">
-                <td th:text="${comercio.codigo}"></td>
-                <td th:text="${comercio.razaoSocial}"></td>
-                <td th:text="${comercio.ativoInativo()}"></td>
-                <td th:text="${comercio.novoVelho()}"></td>
+            <tr th:each="cliente : ${listadeclientes}">
+                <td th:text="${cliente.codigo}"></td>
+                <td th:text="${cliente.razaoSocial}"></td>
+                <td th:text="${cliente.ativoInativo()}"></td>
+                <td th:text="${cliente.novoVelho()}"></td>
                 <td>
                     <button th:onclick="'location.href = \'' + @{/editarcliente/{id}(id=${cliente.id})} +'\''"><img src="../image/edit.png" class="img-button-action"></button>
                     <button th:onclick="'location.href = \'' + @{/deletarcliente/{id}(id=${cliente.id})}+'\''"><img src="../image/delete.png" class="img-button-action"></button>
