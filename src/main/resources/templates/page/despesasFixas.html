@@ -1,13 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns: th="www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>CompraLogo</title>
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="icon" type="image/png" href="image/icon.png">
+    <link rel="stylesheet" href="../../style/styles.css">
+    <link rel="icon" type="image/png" href="../image/icon.png">
 </head>
 <body>
-    <header th:replace="fragment-header :: header"></header>
-    <h1>Despesas Fixas</h1>
+<header th:replace="fragment-header :: header"></header>
+
+<div class="table">
+
+    <H2>DESPESAS FIXAS</H2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>
+                <a th:href="@{'/page/despesasfixas/' + ${currentPage} + '?sortField=agua&amp;sortDir=' + ${reverseSortDir}}">
+                    ÁGUA
+                </a>
+            </th>
+            <th>
+                <a th:href="@{'/page/despesasfixas/' + ${currentPage} + '?sortField=energia&amp;sortDir=' + ${reverseSortDir}}">
+                    LUZ
+                </a>
+            </th>
+            <th>
+                <a th:href="@{'/page/despesasfixas/' + ${currentPage} + '?sortField=gas&amp;sortDir=' + ${reverseSortDir}}">
+                    GÁS
+                </a>
+            </th>
+            <th>
+                <a th:href="@{'/page/despesasfixas/' + ${currentPage} + '?sortField=internet&amp;sortDir=' + ${reverseSortDir}}">
+                    INTERNET
+                </a>
+            </th>
+            <th>
+                <a th:href="@{'/page/despesasfixas/' + ${currentPage} + '?sortField=dataDaConta&amp;sortDir=' + ${reverseSortDir}}">
+                    DATA
+                </a>
+            </th>
+            <th>
+                <a>
+                    AÇÕES
+                </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="despesasFixas : ${listaDeDespesasFixas}">
+            <td th:text="'R$ ' + ${despesasFixas.agua}"></td>
+            <td th:text="'R$ ' + ${despesasFixas.energia}"></td>
+            <td th:text="'R$ ' + ${despesasFixas.gas}"></td>
+            <td th:text="'R$ ' + ${despesasFixas.internet}"></td>
+            <td th:text="${despesasFixas.getDataDespesasFixasBr()}"></td>
+            <td>
+                <button th:onclick="'location.href = \'' + @{/despesasfixas/editardespesasfixas/{id}(id=${despesasFixas.id})} + '\''"><img src="../../image/edit.png" class="img-button-action"></button>
+                <button th:onclick="'location.href = \'' + @{/deletardespesasfixas/{id}(id=${despesasFixas.id})} + '\''"><img src="../../image/delete.png" class="img-button-action"></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div-action-table">
+        <div class="list-pagened" th:if="${totalPages > 1}">
+            <div class="list-pagened-info">
+                <div>
+                    <div id="total-comercio-listacomercio">
+                        Total Clientes: [[${totalItems}]]
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                <a th:if="${currentPage != i}" th:href="@{'/page/despesasfixas/' + ${i}+ '?sortField=' + ${sortField} + '&amp;sortDir=' + ${sortDir}}">[[${i}]]</a>
+                                <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+                            </span>
+                    </div>
+                    <div id="div-pagened-voltar" th:if="${currentPage >= 2}">
+                        <a th:href="@{'/page/despesasfixas/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&amp;sortDir=' + ${sortDir}}">Voltar</a>
+                        <span th:unless="${currentPage >= totalPages}">Voltar</span>
+                    </div>
+                    <div>
+                        <a th:if="${currentPage < totalPages}" th:href="@{'/page/despesasfixas/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&amp;sortDir=' + ${sortDir}}">Próxima</a>
+                        <span th:unless="${currentPage < totalPages}">Próxima</span>
+                    </div>
+
+                    <div style="padding: 0 0 0 10px">
+                        <a th:if="${currentPage < totalPages}" th:href="@{'/page/despesasfixas/' + ${totalPages}+ '?sortField=' + ${sortField} + '&amp;sortDir=' + ${sortDir}}">Última</a>
+                        <span th:unless="${currentPage < totalPages}">Última</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div-button-add">
+            <button class="button-add" th:onclick="'location.href = \'' + @{/despesasfixas/novasDespesasFixas}+'\''">ADICIONAR NOVA DESPESA FIXA</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

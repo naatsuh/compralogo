@@ -70,9 +70,14 @@ table thead tr th{
 table thead tr th:nth-last-child(1){
     border-width: 1px;
 }
-table a{
+table thead a{
     text-decoration: none;
     color: #ff4d4d;
+}
+
+table tbody a {
+    text-decoration: none;
+    color: black;
 }
 .div-action-table{
     display: flex;
@@ -130,6 +135,9 @@ table a{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+form {
+    margin: 0 0 15px 0;
 }
 .div-form form {
     display: flex;

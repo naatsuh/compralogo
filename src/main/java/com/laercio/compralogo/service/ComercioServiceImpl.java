@@ -19,7 +19,7 @@ public class ComercioServiceImpl implements ComercioService {
 
     @Override
     public List<Comercio> getAllComercios() {
-        return comercioRepository.findAll();
+        return this.comercioRepository.findAll();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ComercioServiceImpl implements ComercioService {
 
     @Override
     public Comercio getComercioById(long id) {
-        Optional<Comercio> optional = comercioRepository.findById(id);
+        Optional<Comercio> optional = this.comercioRepository.findById(id);
         Comercio comercio = null;
         if (optional.isPresent()) {
             comercio = optional.get();

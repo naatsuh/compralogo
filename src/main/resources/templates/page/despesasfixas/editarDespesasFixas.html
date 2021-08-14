@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns: th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CompraLogo</title>
+    <link rel="stylesheet"  href="../../style/styles.css"/>
+    <link rel="icon" type="image/png" href="../../image/icon.png">
+</head>
+<body>
+    <header th:replace="fragment-header :: header"></header>
+
+    <div class="div-space">
+        <hr>
+    </div>
+    <div class="div-form">
+        <h2>EDITAR COMERCIO</h2>
+        <form action="#" th:action="@{/saveDespesasFixas}" th:object="${despesasFixas}"
+              method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            <label>CONTA DE ÁGUA</label>
+            <input name="agua" th:field="*{agua}" type="number" step="0.010" required autofocus/>
+            <label>CONTA DE ENERGIA</label>
+            <input name="energia" th:field="*{energia}"type="number" step="0.010" required/>
+            <label>GÁS</label>
+            <input name="gas" th:field="*{gas}" type="number" step="0.010" required/>
+            <label>CONTA DE INTERNET</label>
+            <input name="internet" th:field="*{internet}" type="number" step="0.010" required/>
+            <label>DATA</label>
+            <input name="dataDaConta"  th:field="*{dataDaConta}" type="date"/>
+
+            <input id="button-form" type="submit" value="SALVAR">
+        </form>
+    </div>
+    <div class="div-space">
+        <hr>
+    </div>
+</body>
+</html>

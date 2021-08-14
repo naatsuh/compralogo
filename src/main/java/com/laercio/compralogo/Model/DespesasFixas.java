@@ -1,24 +1,26 @@
 package com.laercio.compralogo.Model;
 
+import com.laercio.compralogo.util.MetodosPersonalizados;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "dispesas_fixas")
-public class DispesasFixas {
+@Table(name = "despesas_fixas")
+public class DespesasFixas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "agua")
     private double agua;
-    @Column(name = "luz")
-    private double luz;
+    @Column(name = "energia")
+    private double energia;
     @Column(name = "gas")
     private double gas;
     @Column(name = "internet")
     private double internet;
-    @Column(name = "mes_ano")
-    private double data;
+    @Column(name = "data")
+    private String dataDaConta;
 
     public long getId() {
         return id;
@@ -36,12 +38,12 @@ public class DispesasFixas {
         this.agua = agua;
     }
 
-    public double getLuz() {
-        return luz;
+    public double getEnergia() {
+        return energia;
     }
 
-    public void setLuz(double luz) {
-        this.luz = luz;
+    public void setEnergia(double energia) {
+        this.energia = energia;
     }
 
     public double getGas() {
@@ -60,11 +62,20 @@ public class DispesasFixas {
         this.internet = internet;
     }
 
-    public double getData() {
-        return data;
+    public String getDataDaConta() {
+        return dataDaConta;
     }
 
-    public void setData(double data) {
-        this.data = data;
+    public String getDataDespesasFixasBr() {
+        MetodosPersonalizados mp = new MetodosPersonalizados();
+        return mp.dataBr(dataDaConta,"/");
+    }
+    public String getDateNowPreLoadingPage(){
+        MetodosPersonalizados mp = new MetodosPersonalizados();
+        return mp.dataDeAgora();
+    }
+
+    public void setDataDaConta(String data) {
+        this.dataDaConta = data;
     }
 }

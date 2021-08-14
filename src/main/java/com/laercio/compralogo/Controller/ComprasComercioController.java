@@ -24,7 +24,7 @@ public class ComprasComercioController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/comercio/novaCompra")
-    public String novacompra(Model model) {
+    public String novaCompra(Model model) {
         Comercio comercio = new Comercio();
         model.addAttribute("comercio", comercio);
         return "page/comercio/novaCompra";
@@ -44,14 +44,14 @@ public class ComprasComercioController {
         return "page/comercio/editarcomercio";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/comercio/deletarcomercio/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/deletarcomercio/{id}")
     public String deletarComercio(@PathVariable(value = "id") long id) {
         this.comercioService.deletarComercioById(id);
-        return "redirect:/compras";
+        return "page/compras";
     }
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/page/{pageNo}")
+    @RequestMapping(method = RequestMethod.GET, value = "/page/comercio/{pageNo}")
     public String findPaginated(@PathVariable (value = "pageNo") int pageNo,
                                 @RequestParam("sortField") String sortField,
                                 @RequestParam("sortDir") String sortDir,

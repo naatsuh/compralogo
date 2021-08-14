@@ -52,6 +52,12 @@ public class Comercio {
     public String getDataDaCompra() {
         return dataDaCompra;
     }
+
+    public String getDateNowPreLoadingPage () {
+        MetodosPersonalizados mp = new MetodosPersonalizados();
+        return mp.dataDeAgora();
+    }
+
     public String getDataDaCompraBr() {
         MetodosPersonalizados mp = new MetodosPersonalizados();
         return mp.dataBr(dataDaCompra,"/");
